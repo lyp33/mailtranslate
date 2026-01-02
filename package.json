@@ -1,0 +1,23 @@
+{
+  "name": "outlook-translate-addin",
+  "version": "1.0.0",
+  "description": "Outlook 邮件翻译插件",
+  "scripts": {
+    "start": "office-addin-debugging start manifest.xml",
+    "stop": "office-addin-debugging stop manifest.xml",
+    "verify": "office-addin-manifest validate manifest.xml",
+    "serve": "http-server . -p 3000 --cors -c-1"
+  },
+  "keywords": [
+    "outlook",
+    "office-addin",
+    "translator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "office-addin-debugging": "^5.0.0",
+    "office-addin-manifest": "^1.12.0",
+    "http-server": "^14.1.1"
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>设置 - 邮件翻译助手</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css">
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+    <style>
+        .settings-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button-group button {
+            flex: 1;
+        }
+
+        .help-text {
+            background-color: #fff4ce;
+            border-left: 4px solid #ffb900;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .help-text h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .help-text ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .help-text li {
+            margin-bottom: 5px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body class="ms-font-m">
+    <main class="ms-Fabric">
+        <div class="container">
+            <header>
+                <h1 class="ms-Font-xl ms-FontWeight-semibold">插件设置</h1>
+                <p class="ms-Font-s-secondary">配置您的翻译 API 参数</p>
+            </header>
+
+            <div class="settings-form">
+                <div class="help-text">
+                    <h4>使用说明</h4>
+                    <ul>
+                        <li>请输入您的 API 认证 Token（Bearer Token）</li>
+                        <li>Token 将安全地保存在您的本地浏览器中</li>
+                        <li>其他用户无法看到您的 Token</li>
+                    </ul>
+                </div>
+
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label for="api-url">API 地址</label>
+                        <input type="url" id="api-url" name="api-url" required
+                               placeholder="https://portal.insuremo.com/api/mo-re/ai-qa-service/aiqa/api/chat">
+                        <small>翻译 API 的完整地址</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="auth-token">认证 Token</label>
+                        <input type="text" id="auth-token" name="auth-token" required
+                               placeholder="Bearer your-token-here">
+                        <small>Bearer Token 格式：Bearer xxxxx</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="llm-code">LLM 模型</label>
+                        <select id="llm-code" name="llm-code">
+                            <option value="qwen-max">qwen-max</option>
+                            <option value="gpt-4">gpt-4</option>
+                            <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+                        </select>
+                        <small>选择用于翻译的 AI 模型</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="temperature">Temperature (0-1)</label>
+                        <input type="number" id="temperature" name="temperature"
+                               min="0" max="1" step="0.1" value="0.2" required>
+                        <small>控制翻译的随机性，值越低越确定</small>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="ms-Button ms-Button--primary">
+                            <span class="ms-Button-label">保存设置</span>
+                        </button>
+                        <button type="button" id="reset-button" class="ms-Button">
+                            <span class="ms-Button-label">重置默认</span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="message" class="success-message" style="display: none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="settings.js"></script>
+</body>
+
+</html>

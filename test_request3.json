@@ -1,0 +1,7 @@
+{
+  "query": "将如下内容翻译为中文：\n\nHello, this is a test email.",
+  "messages": [],
+  "temperature": 0.2,
+  "llm_code": "qwen-max",
+  "stream": false
+}

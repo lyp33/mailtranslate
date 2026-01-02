@@ -1,0 +1,12 @@
+{
+  "query": "翻译邮件",
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好,请将如下内容翻译为中文：\n\nSubject: Project Update\n\nDear Team,\n\nI am writing to inform you that the project deadline has been extended to next Friday. Please update your schedules accordingly.\n\nLet me know if you have any questions.\n\nBest regards,\nJohn"
+    }
+  ],
+  "temperature": 0.2,
+  "llm_code": "qwen-max",
+  "stream": false
+}

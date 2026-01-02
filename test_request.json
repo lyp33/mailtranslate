@@ -1,0 +1,12 @@
+{
+  "query": "你好",
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好,请将如下内容翻译为中文：Hello, how are you today?"
+    }
+  ],
+  "temperature": 0.2,
+  "llm_code": "qwen-max",
+  "stream": false
+}
