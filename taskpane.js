@@ -8,7 +8,8 @@ const DEFAULT_CONFIG = {
     AUTH_TOKEN: 'Bearer eBaoCCAIFrZR-JVfKwShOE6Qj_Nxu3DA',
     LLM_CODE: 'qwen-max',
     TEMPERATURE: 0.2,
-    STREAM: false
+    STREAM: false,
+    AUTO_TRANSLATE: false  // 默认不启用自动翻译
 };
 
 // Office.js 初始化
@@ -32,6 +33,7 @@ Office.onReady((info) => {
 async function loadEmailContent() {
     try {
         const item = Office.context.mailbox.item;
+        let loadCompleted = false;
 
         // 获取邮件正文
         item.body.getAsync('text', (result) => {
@@ -41,6 +43,7 @@ async function loadEmailContent() {
             } else {
                 showError('无法获取邮件内容');
             }
+            checkAndAutoTranslate();
         });
 
         // 获取邮件主题作为补充信息
@@ -57,6 +60,23 @@ async function loadEmailContent() {
     } catch (error) {
         console.error('加载邮件内容失败:', error);
         showError('加载邮件内容失败: ' + error.message);
+    }
+}
+
+// 检查是否启用自动翻译，如果启用则自动翻译
+function checkAndAutoTranslate() {
+    const config = getConfig();
+
+    // 检查是否启用了自动翻译
+    if (config.AUTO_TRANSLATE) {
+        const content = document.getElementById('original-text').value.trim();
+
+        // 如果有内容，延迟500ms后自动翻译（给用户一个看到原文的机会）
+        if (content) {
+            setTimeout(() => {
+                translateEmail();
+            }, 500);
+        }
     }
 }
 

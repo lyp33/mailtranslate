@@ -6,7 +6,8 @@ const DEFAULT_CONFIG = {
     AUTH_TOKEN: '',
     LLM_CODE: 'qwen-max',
     TEMPERATURE: 0.2,
-    STREAM: false
+    STREAM: false,
+    AUTO_TRANSLATE: false  // 默认不启用自动翻译
 };
 
 // Office.js 初始化
@@ -31,6 +32,7 @@ function loadSettings() {
     document.getElementById('auth-token').value = config.AUTH_TOKEN || '';
     document.getElementById('llm-code').value = config.LLM_CODE || DEFAULT_CONFIG.LLM_CODE;
     document.getElementById('temperature').value = config.TEMPERATURE || DEFAULT_CONFIG.TEMPERATURE;
+    document.getElementById('auto-translate').checked = config.AUTO_TRANSLATE || false;
 }
 
 // 保存设置
@@ -42,7 +44,8 @@ function saveSettings(event) {
         AUTH_TOKEN: document.getElementById('auth-token').value.trim(),
         LLM_CODE: document.getElementById('llm-code').value,
         TEMPERATURE: parseFloat(document.getElementById('temperature').value),
-        STREAM: DEFAULT_CONFIG.STREAM
+        STREAM: DEFAULT_CONFIG.STREAM,
+        AUTO_TRANSLATE: document.getElementById('auto-translate').checked
     };
 
     // 验证输入
