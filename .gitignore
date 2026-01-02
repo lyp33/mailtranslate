@@ -29,6 +29,5 @@ build/
 temp/
 
 # Game files (not related to Outlook add-in)
-index.html
 game.js
 style.css

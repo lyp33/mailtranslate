@@ -10,7 +10,7 @@
   <SupportUrl DefaultValue="https://www.baidu.com" />
 
   <AppDomains>
-    <AppDomain>http://localhost:3000</AppDomain>
+    <AppDomain>https://mailtranslate.vercel.app</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -26,7 +26,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="http://localhost:3000/taskpane.html" />
+        <SourceLocation DefaultValue="https://mailtranslate.vercel.app/taskpane.html" />
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -91,8 +91,8 @@
           <bt:String id="residTranslateButtonDesc" DefaultValue="点击将当前邮件翻译为中文"/>
         </bt:Strings>
         <bt:Urls>
-          <bt:Url id="residFunctions" DefaultValue="http://localhost:3000/functions.html" />
-          <bt:Url id="residTaskpaneUrl" DefaultValue="http://localhost:3000/taskpane.html" />
+          <bt:Url id="residFunctions" DefaultValue="https://mailtranslate.vercel.app/functions.html" />
+          <bt:Url id="residTaskpaneUrl" DefaultValue="https://mailtranslate.vercel.app/taskpane.html" />
         </bt:Urls>
       </Resources>
 

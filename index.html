@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=./taskpane.html">
+    <title>邮件翻译助手 - Outlook Add-in</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .info h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .info code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .links {
+            margin-top: 30px;
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .loading {
+            display: inline-block;
+            margin-top: 20px;
+            color: #667eea;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 邮件翻译助手</h1>
+        <p>Outlook 邮件翻译插件 - Office Add-in</p>
+
+        <div class="info">
+            <h3>🚀 正在跳转到翻译页面...</h3>
+            <p>如果没有自动跳转，请点击下面的链接：</p>
+        </div>
+
+        <div class="links">
+            <a href="./taskpane.html">翻译页面</a>
+            <a href="./settings.html">设置页面</a>
+        </div>
+
+        <div class="info">
+            <h3>📖 使用说明</h3>
+            <p>1. 在 Outlook 中加载此插件（上传 <code>manifest.xml</code>）</p>
+            <p>2. 打开任意邮件，点击工具栏的"翻译邮件"按钮</p>
+            <p>3. 首次使用请点击设置图标配置 API Token</p>
+        </div>
+
+        <p class="loading">⏳ 页面跳转中...</p>
+    </div>
+
+    <script>
+        // 如果 meta refresh 不工作，使用 JavaScript 跳转
+        setTimeout(function() {
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                window.location.href = './taskpane.html';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
